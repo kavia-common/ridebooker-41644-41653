@@ -3,7 +3,11 @@
 Run (dev):
 - npm install
 - npm run dev
-- Open the URL shown (commonly http://localhost:5173). In the tizen_frontend container this app is intended to be previewed on port 3000.
+- Open http://localhost:3000 (the dev server is configured to run on port 3000 and host 0.0.0.0 for the container)
+
+Notes on tooling compatibility:
+- This project pins Vite to v4.x and @vitejs/plugin-react to v4.1 to ensure compatibility with Node.js 18.
+- Node core polyfills (including crypto) are provided via vite-plugin-node-polyfills to avoid runtime errors such as "TypeError: crypto.hash is not a function".
 
 Build:
 - npm run build
