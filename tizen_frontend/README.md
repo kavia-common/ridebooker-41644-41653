@@ -3,11 +3,12 @@
 Run (dev):
 - npm install
 - npm run dev
-- Open http://localhost:3000 (the dev server is configured to run on port 3000 and host 0.0.0.0 for the container)
+- Open http://localhost:3000 (the dev server binds to 0.0.0.0:3000 inside the container; strictPort is enabled so it will fail rather than choose another port)
 
 Notes on tooling compatibility:
 - This project pins Vite to v4.x and @vitejs/plugin-react to v4.1 to ensure compatibility with Node.js 18.
 - Node core polyfills (including crypto) are provided via vite-plugin-node-polyfills to avoid runtime errors such as "TypeError: crypto.hash is not a function".
+- Browser polyfill packages are installed and mapped via resolve.alias in vite.config.js: crypto-browserify, stream-browserify, buffer, process, util, events.
 
 Build:
 - npm run build

@@ -19,14 +19,16 @@ export default defineConfig({
     global: 'globalThis',
   },
   server: {
-    host: '0.0.0.0',
-    port: 3000,
-    strictPort: true,
+    host: '0.0.0.0',     // bind to all interfaces inside the container
+    port: 3000,          // required by container mapping
+    strictPort: true,    // fail rather than choose a random port
+    open: false,         // don't try to open a browser in CI/container
   },
   preview: {
     host: '0.0.0.0',
     port: 3000,
     strictPort: true,
+    open: false,
   },
   resolve: {
     alias: {
